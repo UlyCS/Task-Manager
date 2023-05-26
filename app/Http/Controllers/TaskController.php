@@ -52,7 +52,7 @@ class TaskController extends Controller
         $attributes['slug'] = Str::slug($request->title);
         $task = Task::create($attributes);
 
-        $this->notifyUser($task->assigneduser_id);
+        // $this->notifyUser($task->assigneduser_id);
 
         return redirect('/')->with('Success');
     }
@@ -100,7 +100,7 @@ class TaskController extends Controller
         $attributes['slug'] = Str::slug($request->title);
         $task->update($attributes);
 
-        $this->notifyUser($task->assigneduser_id);
+        // $this->notifyUser($task->assigneduser_id);
 
         return redirect('/task')->with('Successfully Updated Task');
     }
@@ -112,11 +112,12 @@ class TaskController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        $task = Task::find($id);
-        $task->delete;
-        return redirect('/task')->with('Successfully Deleted Task');
-    }
+{
+    $task = Task::find($id);
+    $task->delete();
+
+    return redirect('/task')->with('success', 'Task successfully deleted.');
+}
 
     public function validateTask(Request $request)
     {

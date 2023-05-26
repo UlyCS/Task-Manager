@@ -5,7 +5,7 @@
             {{-- Action section --}}           
             @auth                
                 <div class="flex flex-row-reverse space-x-reverse">
-                    <form method="post" action="/task/{{ $task->id }}" onsubmit="return confirm('Please confirm task deletion')">
+                    <form method="post" action="/task/{{ $task->id }}/deleted" onsubmit="return confirm('Please confirm task deletion')">
                         @csrf
                         @method('DELETE')
                         <button class="bg-red-500 h-10 w-10 rounded"><i class="fas fa-trash-alt fa-inverse"></i></button>
@@ -15,8 +15,8 @@
                         <button class="bg-green-500 h-10 w-10 rounded">
                             <a href="/task/{{ $task->id }}/notify">
                                 <i class="fas fa-envelope fa-inverse"></i>
-                            </a>
-                        </button> -->
+                            </a> -->
+                        </button>
                         {{-- Edit task --}}
                         <button class="bg-blue-500 h-10 w-10">
                             <a href="/task/{{ $task->id }}/edit"> 
