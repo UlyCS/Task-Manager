@@ -78,14 +78,16 @@
         @foreach ($task->comments as $comment)
             <div class="row flex">
                 <span>{{ $comment->created_at }}, </span>
-                <span class="font-bold">{{ $comment->user->name }}: </span>
-                <p>{{ $comment->body }}</p>
+                @if ($comment->user)
+                    <span class="font-bold">{{ $comment->user->name }} : </span>
+                @else
+                    <span class="font-bold">Unknown User : </span>
+                @endif
             </div>
         @endforeach
     @else
         <p class="font-bold justify self-center">No Comments on this task......</p>
     @endif
-</div>
 </div>
     </div>
 </x-sub-section-panel>
