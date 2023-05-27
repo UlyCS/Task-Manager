@@ -11,12 +11,13 @@ class CreateTasksTable extends Migration
      *
      * @return void
      */
+   
     public function up()
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('taskcreator_id');
-            $table->foreignId('assigneduser_id');
+            $table->foreignId('taskcreator_id')->constrained('users');
+            $table->foreignId('assigneduser_id')->constrained('users');
             $table->string('title');
             $table->string('slug');
             $table->text('description');
@@ -25,6 +26,7 @@ class CreateTasksTable extends Migration
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
