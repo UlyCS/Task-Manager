@@ -83,7 +83,6 @@
                 @else
                     <span class="font-bold">Unknown User : </span>
                 @endif
-                <p>{{ $comment->body }}</p>
             </div>
         @endforeach
     @else
