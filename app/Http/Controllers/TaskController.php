@@ -111,7 +111,7 @@ class TaskController extends Controller
      */
     public function destroy($id)
 {
-    $task = Task::find($id);
+    $task = Task::find($id)-> where('id', Auth::id()); 
     $task->delete();
 
     return redirect('/task')->with('success', 'Task successfully deleted.');

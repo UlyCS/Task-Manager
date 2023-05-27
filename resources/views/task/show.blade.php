@@ -7,8 +7,10 @@
                 <div class="flex flex-row-reverse space-x-reverse">
                     <form method="post" action="/task/{{ $task->id }}/deleted" onsubmit="return confirm('Please confirm task deletion')">
                         @csrf
-                        @method('DELETE')
+                        @if($taskcreator_id = Auth::id())
+                        @method('DELETE')  
                         <button class="bg-red-500 h-10 w-10 rounded"><i class="fas fa-trash-alt fa-inverse"></i></button>
+                        @endif
                     </form>
                     <!-- @if (!$task->completed) 
                         {{-- Notify user --}}                        
