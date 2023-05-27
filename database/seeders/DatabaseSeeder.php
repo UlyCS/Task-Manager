@@ -6,7 +6,6 @@ use App\Models\Task;
 use App\Models\User;
 use App\Models\Comment;
 
-
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -39,4 +38,3 @@ class DatabaseSeeder extends Seeder
     }     
        
 }
-?>

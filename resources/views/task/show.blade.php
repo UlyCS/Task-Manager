@@ -75,17 +75,15 @@
         </div>
 
         {{-- task display comment section --}}
-<div class="bg-gray-100 border border-gray-200 p-2 rounded-xl w-2/3">
+        <div class="bg-gray-100 border border-gray-200 p-2 rounded-xl w-2/3">
     @if ($task->comments->count())
         @foreach ($task->comments as $comment)
             <div class="row flex">
                 <span>{{ $comment->created_at }}, </span>
                 @if ($comment->user)
                     <span class="font-bold">{{ $comment->user->name }} : </span>
-                    <span>{{ $comment->body }}</span> {{-- Add this line to display the comment body --}}
                 @else
                     <span class="font-bold">Unknown User : </span>
-                    <span>{{ $comment->body }}</span> {{-- Add this line to display the comment body --}}
                 @endif
             </div>
         @endforeach
