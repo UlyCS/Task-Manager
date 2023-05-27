@@ -3,15 +3,19 @@
     <section>
         <div class="container">
             {{-- Action section --}}           
-            @auth                
+            @auth    
+            @if($task->taskcreator_id == Auth::id())            
                 <div class="flex flex-row-reverse space-x-reverse">
                     <form method="post" action="/task/{{ $task->id }}/deleted" onsubmit="return confirm('Please confirm task deletion')">
                         @csrf
-                        @if($taskcreator_id = Auth::id())
+            
+                        
                         @method('DELETE')  
+                        
                         <button class="bg-red-500 h-10 w-10 rounded"><i class="fas fa-trash-alt fa-inverse"></i></button>
-                        @endif
+                        
                     </form>
+                    @endif
                     <!-- @if (!$task->completed) 
                         {{-- Notify user --}}                        
                         <button class="bg-green-500 h-10 w-10 rounded">
@@ -75,7 +79,7 @@
         </div>
 
         {{-- task display comment section --}}
-        <div class="bg-gray-100 border border-gray-200 p-2 rounded-xl w-2/3">
+<div class="bg-gray-100 border border-gray-200 p-2 rounded-xl w-2/3">
     @if ($task->comments->count())
         @foreach ($task->comments as $comment)
             <div class="row flex">
@@ -85,6 +89,7 @@
                 @else
                     <span class="font-bold">Unknown User : </span>
                 @endif
+                <span>{{ $comment->body }}</span> {{-- Display comment body text --}}
             </div>
         @endforeach
     @else

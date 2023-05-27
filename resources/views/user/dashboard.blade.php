@@ -16,7 +16,7 @@
             <x-table.table-head thName="Created By" />
             <x-table.table-head thName="Assigned to" />
             <x-table.table-head thName="Due" />
-            <x-table.table-head thName="Completed'lol'" />
+            <x-table.table-head thName="Completed'" />
         </tr>
     </thead>
     <tbody>
