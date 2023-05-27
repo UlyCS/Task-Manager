@@ -7,8 +7,7 @@
     <title>Task Manager</title>
     <meta name="author" content="wasilolly">
     <meta name="description" content="task-manager">
-
-    <!-- Tailwind -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('Icon.png') }}">    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
@@ -53,14 +52,23 @@
     
     {{-- side dashboard --}}
     <aside class="relative bg-blue-600 w-54 shadow-xl">
-        <div class="p-6">
-            <a href="{{ route('task.index') }}"
-                class="text-white text-3xl font-semibold uppercase hover:text-gray-300">Task Manager</a>
-            <button
-                class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
-                <i class="fas fa-plus mr-3"></i><a href="{{ route('task.create') }}">New Task</a>
-            </button>
+    <div class="p-6">
+        <div class="flex items-center">
+            <a href="{{ route('task.index') }}">
+                <img src="{{ asset('Icon.png') }}" alt="Logo" class="h-12 w-12 mr-2 logo-image">
+            </a>
+            <a href="{{ route('task.index') }}" class="text-white text-3xl font-semibold uppercase hover:text-gray-300">Task Manager</a>
         </div>
+        <button class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
+            <i class="fas fa-plus mr-3"></i>
+            <a href="{{ route('task.create') }}">New Task</a>
+        </button>
+    </div>
+        <button class="w-full bg-white cta-btn font-semibold py-2 mt-5 rounded-br-lg rounded-bl-lg rounded-tr-lg shadow-lg hover:shadow-xl hover:bg-gray-300 flex items-center justify-center">
+            <i class="fas fa-plus mr-3"></i>
+            <a href="{{ route('task.create') }}">New Task</a>
+        </button>
+    </div>
         <nav class="text-white text-base font-semibold pt-3">
             
             @auth
