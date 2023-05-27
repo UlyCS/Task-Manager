@@ -1,3 +1,7 @@
+<head>
+    <!-- Other meta tags and CSS files -->
+    <link rel="stylesheet" href="{{ asset('css/animation.css') }}">
+</head>
 <x-sub-section-panel sectionName="Login">
     <div class="w-full lg:w-1/2 my-6 pr-0 lg:pr-2">
         <div class="leading-loose">

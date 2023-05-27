@@ -8,9 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Str;
-use App\Notifications\TaskAssigned;
-use Illuminate\Support\Facades\Notification;
-use App\Notifications\TaskCompleted;
+
 
 class TaskController extends Controller
 {

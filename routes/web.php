@@ -31,9 +31,9 @@ Route::resources([
 
 Route::middleware(['auth'])->group(function () {
     Route::post('/logout', [SessionsController::class, 'destroy']);
-    Route::delete('/task/{task}/deleted', [TaskController::class, 'destroy'])->name('tasks.destroy');
     Route::patch('/task/{task}/completed', [TaskController::class,'completed']);
     Route::post('/task/{task}/comment', [CommentController::class, 'store']);
+    Route::delete('/task/{task}/deleted', [TaskController::class, 'destroy'])->name('tasks.destroy');
     // Route::get('/task/{task}/notify', [TaskController::class, 'notifyUser']);
 });
 

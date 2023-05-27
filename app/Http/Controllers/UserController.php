@@ -22,11 +22,11 @@ class UserController extends Controller
 
     public function userDashboard(User $user)
     {
-        return view('user.dashboard',[
+        return view('user.dashboard', [
             'user' => $user, 
-            'tasks' =>   Task::where('taskcreator_id', $user->id)
-                            ->orWhere('assigneduser_id', $user->id)
-                            ->paginate(10)
+            'tasks' => Task::where('taskcreator_id', $user->id)
+                ->orWhere('assigneduser_id', $user->id)
+                ->paginate(10)
         ]);
     }
     

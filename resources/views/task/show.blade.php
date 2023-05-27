@@ -74,17 +74,20 @@
 
         {{-- task display comment section --}}
         <div class="bg-gray-100 border border-gray-200 p-2 rounded-xl w-2/3">
-            @if ($task->comments->count())
-                @foreach ($task->comments as $comment)
-                    <div class="row flex">
-                        <span class="">{{ $comment->created_at }}, </span>
-                        <span class="font-bold">{{ $comment->user->name }} : </span>
-                        <p>{{ $comment->body }}</p>
-                    </div>
-                @endforeach
-            @else
-                <p class="font-bold justify self-center">No Comments on this task......</p>
-            @endif
-        </div>
+    @if ($task->comments->count())
+        @foreach ($task->comments as $comment)
+            <div class="row flex">
+                <span>{{ $comment->created_at }}, </span>
+                @if ($comment->user)
+                    <span class="font-bold">{{ $comment->user->name }} : </span>
+                @else
+                    <span class="font-bold">Unknown User : </span>
+                @endif
+            </div>
+        @endforeach
+    @else
+        <p class="font-bold justify self-center">No Comments on this task......</p>
+    @endif
+</div>
     </div>
 </x-sub-section-panel>
