@@ -11,12 +11,11 @@ use Illuminate\Support\Facades\Route;
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
+| Here is where you can register web routes for your application.
+| These routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 
 Route::get('/', [TaskController::class, 'index'])->name('home');
 
@@ -31,15 +30,15 @@ Route::resources([
 
 Route::middleware(['auth'])->group(function () {
     Route::post('/logout', [SessionsController::class, 'destroy']);
-    Route::patch('/task/{task}/completed', [TaskController::class,'completed']);
+    Route::patch('/task/{task}/completed', [TaskController::class, 'completed']);
     Route::post('/task/{task}/comment', [CommentController::class, 'store']);
-    Route::delete('/task/{task}/deleted', [TaskController::class, 'destroy'])->name('tasks.destroy');
-    // Route::get('/task/{task}/notify', [TaskController::class, 'notifyUser']);
+    Route::delete('/task/{task}', [TaskController::class, 'destroy'])->name('task.destroy');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('user/{user}/dashboard', [UserController::class, 'userDashboard'])->name('user.dashboard');  
     Route::get('user/dashboard/admin', [UserController::class, 'adminDashboard'])->name('admin.dashboard');
 });
 
-
+Route::fallback(function () {
+    return redirect()->route('home');
+});

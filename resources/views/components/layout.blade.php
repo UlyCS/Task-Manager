@@ -75,10 +75,12 @@
                     Admin Dashboard
                     </a> 
                 @endif
+                @if(Auth::user()->admin)
                 <a href="/user/{{ auth()->id() }}/dashboard" class="flex items-center text-white py-4 pl-6 nav-item">
                     <i class="fas fa-user mr-3"></i>
                     {{ ucwords(auth()->user()->name) }}'s Dashboard
                 </a>
+                @endif
             @endauth
             <a href="{{ route('task.index') }}"
                 class="flex items-center text-white hover:opacity-100 py-4 pl-6 nav-item">
